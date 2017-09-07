@@ -4,24 +4,28 @@ int endX = 0;
 int endY =150;
 void setup()
 {
-  size(300,300);
-  strokeWeight(34);
+  size(500,400);
+  strokeWeight(13);
   background(0,0,0);
-  noLoop();
 }
 void draw()
 {
-	stroke(100,42,10);
+	lightning();
+}
+void lightning()
+{
+	stroke(255,255,0);
 	while(startX < 300)
 	{
 		line(startX, startY, endX, endY);
-		startX = startX + 9;
-		startY = startY +9;
+		endX = startX + (int)(Math.random()*9)-9;
+		endY = startY +9;
 	}
-
-
 }
 void mousePressed()
 {
-	redraw();
+	startX = 0;
+	startY = 150;
+	endX = 0;
+	endY = 150;
 }
