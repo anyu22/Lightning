@@ -1,11 +1,11 @@
-int startX =0;
-int startY =150;
-int endX = 0;
-int endY =150;
+int startX =250;
+int startY =0;
+int endX = 90;
+int endY =350;
 void setup()
 {
   size(500,400);
-  strokeWeight(13);
+  strokeWeight(3);
   background(0,0,0);
 }
 void draw()
@@ -15,17 +15,21 @@ void draw()
 void lightning()
 {
 	stroke(255,255,0);
-	while(startX < 300)
+	while(endX > 0)
 	{
+		
+		endX = startX + (int)(Math.random()*500)-250;
+		endY = startY + (int)(Math.random()*500)+80;
 		line(startX, startY, endX, endY);
-		endX = startX + (int)(Math.random()*9)-9;
-		endY = startY +9;
+		startX = endX;
+		startY = endY;
 	}
 }
 void mousePressed()
 {
-	startX = 0;
-	startY = 150;
-	endX = 0;
-	endY = 150;
+	background(0,0,0);
+	startX = 250;
+	startY = 0;
+	endX = 5;
+	endY = 500;
 }
